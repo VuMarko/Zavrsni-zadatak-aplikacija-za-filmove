@@ -1,0 +1,447 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/****************************** Header ******************************/
+
+#mainDiv {
+    max-width: 1440px;
+    padding: 0px;
+}
+
+header>hr {
+    margin-top: 0;
+    border: 1px solid #f5bc4e;
+    margin-bottom: 0;
+}
+
+#mainHeader img {
+    height: 100px;
+}
+
+#mainHeader {
+    margin-left: 0px;
+    margin-right: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: black;
+}
+
+.container-fluid {
+    text-align: center;
+    padding: 0 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#mainTitle {
+    position: relative;
+    background: url(../images/black-brick.jpeg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: auto;
+    width: 1340px;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+}
+
+.okvirOkoNaslova {
+    border: 3px solid #ff4444;
+    border-radius: 50px;
+    width: 500px;
+    padding: 10px 5px;
+    margin: 14.5px auto;
+    box-shadow: 0 -40px 100px, 0 0 2px, 0 0 1.2em #ff4444, 0 0 0.7em #ff4444, 0 0 0.3em #ff4444, 0 10px 3px #000;
+}
+
+h1 {
+    text-align: center;
+    font-family: Lato;
+    font-size: 45px;
+    font-weight: 700;
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+
+h1 span {
+    animation: blink1 linear infinite 2s;
+}
+
+@keyframes blink1 {
+    78% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    79% {
+        color: #333;
+    }
+    80% {
+        text-shadow: none;
+    }
+    81% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    82% {
+        color: #333;
+        text-shadow: none;
+    }
+    83% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+    92% {
+        color: #333;
+        text-shadow: none;
+    }
+    92.5% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+}
+
+/****************************** Nav bar ******************************/
+
+#navBar {
+    margin-left: 0;
+    margin-right: 0;
+    background-color: black;
+    vertical-align: middle;
+    font-family: Roboto;
+    font-size: 15px;
+}
+
+#navBar>div {
+    color: white;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border-radius: 0;
+    color: gold;
+    background-color: black;
+    border: 1px solid black;
+    display: block;
+}
+
+button:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.dropdown {
+    float: right;
+    font-family: Roboto;
+    position: relative;
+}
+
+#registerTab {
+    float: right;
+}
+
+#logInTab {
+    float: right;
+    margin-left: 940px;
+}
+
+.dropbtn {
+    width: 150px;
+    height: 30px;
+    background-color: black;
+    border: 1px solid black;
+    color: gold;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: black;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+}
+
+.dropdown-content>#userName, #passWord {
+    height: 25px;
+    padding: 0 5px;
+    margin: 0 20px;
+    min-width: 100px;
+}
+
+.dropbtn1 {
+    color: gold;
+    margin: auto;
+    margin-top: 10px;
+    min-width: 50%;
+}
+
+.dropbtn1:hover {
+    border: 1px solid white;
+}
+
+.dropdown-content label {
+    padding: 10px;
+    float: left;
+    margin-left: 10px;
+    color: gold;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#ulogovan {
+    display: none;
+}
+
+#addMovieTab {
+    display: none;
+}
+
+/****************************** Main Content ******************************/
+
+#mainContent {
+    overflow: hidden;
+    margin: auto;
+    max-width: 1440px;
+}
+
+#leftContent {
+    width: 250px;
+    height: 690px;
+    padding: 10px;
+    border: 2px solid black;
+    border-right-width: 0.5px;
+    background-color: black;
+    margin: auto;
+    color: white;
+    font-family: Roboto;
+    text-align: center;
+    display: table;
+}
+
+#movieTitle {
+    height: 40px;
+    font-size: 25px;
+    padding: 5px;
+}
+
+#movieRating {
+    height: 40px;
+    font-size: 30px;
+    color: gold;
+    padding: 5px;
+}
+
+#moviePoster {
+    height: 200px;
+}
+
+#movieCast {
+    height: 200px;
+    text-align: left;
+    padding: 5px;
+}
+
+#movieStoryline {
+    height: 185px;
+    text-align: left;
+    padding: 5px;
+}
+
+#centralContent {
+    width: 1190px;
+    height: 690px;
+    border: 2px solid black;
+    border-left-width: 0.5px;
+    padding: 50px;
+}
+
+#centralContentImage {
+    background: url(../images/Polica1.jpg);
+    background-position: center center;
+    background-size: cover;
+    width: 1090px;
+    height: 590px;
+    margin-left: 0;
+    margin-right: 0;
+    /* display: block; */
+    display: block;
+}
+
+#centralContentImage1 {
+    position: relative;
+    
+    background: url(../images/ulaz_u_bioskop.jpg);
+    background-position: center center;
+    background-size: cover;
+    width: 1090px;
+    height: 590px;
+    margin-left: 0;
+    margin-right: 0;
+    display: none;
+}
+
+#registrationPanel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: (-50%, -50%);
+    -ms-transform: (-50%, -50%);
+    text-align: center;
+    display: none;
+    position: absolute;
+    padding: 0%;
+    margin: auto;
+    max-width: 30%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: rgb(252, 251, 231);
+    padding: 20px;
+}
+
+#createOrEdit {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#registrationPanel label {
+    padding: 10px;
+}
+
+#registrationPanel input {
+    width: 100%;
+}
+
+#buttonsRegistration {
+    overflow: hidden;
+}
+
+#createAcountRegistration {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#resetRegistration {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#createAcountRegistration:hover, #resetRegistration:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+#centralContentMovie {
+    display: none;
+}
+
+#centralContentAddMovie {
+    display: none;
+}
+
+#centralContentAddMovie{
+    position: relative;
+    background: url(../images/bioskop.jpg);
+    background-position: center center;
+    background-size: cover;
+    width: 1090px;
+    height: 590px;
+    margin-left: 0;
+    margin-right: 0;
+    display: none;
+}
+
+#addMoviePanel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: (-50%, -50%);
+    -ms-transform: (-50%, -50%);
+    text-align: center;
+    display: none;
+    position: absolute;
+    padding: 0%;
+    margin: auto;
+    max-width: 30%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: rgb(252, 251, 231);
+    padding: 20px;
+}
+
+#addMoviePanel input,select {
+    width: 100%;
+}
+
+#addMovie {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#resetAddMovie {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:400,400i,700|Roboto:400,400i,700&amp;subset=latin-ext"
+        rel="stylesheet">
+    <title>MyMovieStorage</title>
+    <link rel="icon" href="images/MyMovieStorage-favicon.ico" type="image/ico" sizes="16x16">
+</head>
+
+<body>
+    <div id="mainDiv" class="container-fluid">
+        <header id="mainHeader" class="row">
+            <div id="mainLogo">
+                <img src="images/MyMovieStorage-logo-slika-croped (100x100).jpg" alt="MyMovieStorage-logo-slika-croped"
+                    class="img-responsive">
+            </div>
+            <div id="mainTitle">
+                <div class="okvirOkoNaslova">
+                    <h1>My <span>Movie </span>Storage</h1>
+                </div>
+            </div>
+            <nav id="navBar" class="row">
+                <button type="button" id="homeTab">Home</button>
+                <button type="button" id="addMovieTab">Add movie</button>
+                <button type="button" id="searchTab">Search</button>
+                <div class="dropdown" id="logInTab">
+                    <div id="ulogovan">Ulogovani ste kao: <span id="imeUlogovanogKorisnika">
+                        </span><a href="">Izloguj se</a>
+                    </div>
+                    <button class="dropbtn">Log in</button>
+                    <div class="dropdown-content">
+                        <label for="userName">User name</label>
+                        <input type="text" id="userName">
+                        <label for="passWord">Password</label>
+                        <input type="password" id="passWord">
+                        <button class="dropbtn1" id="dropbtn1">Ok</button>
+                    </div>
+                </div>
+                <button class="dropbtn" id="registerTab">Register</button>
+            </nav>
+        </header>
+        <div id="mainContent" class="row">
+            <div id="leftContent">
+                <div id="movieTitle"><a href="">Naslov</a></div>
+                <div id="movieRating">8.7</div>
+                <div id="moviePoster">poster</div>
+                <div id="movieCast">Cast:</div>
+                <div id="movieStoryline">Radnja:</div>
+            </div>
+            <div id="centralContent">
+                <div id="centralContentImage"></div>
+                <div id="centralContentImage1">
+                    <form action="#" id="registrationPanel">
+                        <fieldset>
+                            <legend id="createOrEdit">Create your acount:</legend>
+                            <label for="userNameRegistration">User name:</label>
+                            <br>
+                            <input type="text" name="userName" id="userNameRegistration" required>
+                            <br>
+                            <br>
+                            <label for="userEmailRegistration">Email address: </label>
+                            <br>
+                            <input type="email" name="userEmailRegistration" id="userEmailRegistration" required>
+                            <br>
+                            <br>
+                            <label for="userPasswordRegistration">Password:</label>
+                            <br>
+                            <input type="password" name="userPasswordRegistration" id="userPasswordRegistration"
+                                required>
+                            <br>
+                            <br>
+                            <br>
+                            <label for="userPasswordRegistrationConfirm">Confirm password:</label>
+                            <br>
+                            <input type="password" name="userPasswordRegistrationConfirm" id="userPasswordRegistrationConfirm"
+                                required>
+                            <br>
+                            <br>
+                            <div id="buttonsRegistration">
+                                <button type="submit" id="createAcountRegistration">Create acount</button>
+                                <button type="reset" id="resetRegistration">Reset</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="centralContentMovie"></div>
+                <div id="centralContentAddMovie">
+                    <form action="#" id="addMoviePanel">
+                        <fieldset>
+                            <legend id="createMovieDB">Create movie database:</legend>
+                            <br>
+                            <br>
+                            <label for="movieID">Movie ID:</label>
+                            <br>
+                            <input type="text" name="movieID" id="movieID" required>
+                            <br>
+                            <br>
+                            <label for="AddMovieTitle">Movie title:</label>
+                            <br>
+                            <input type="text" name="AddMovieTitle" id="AddMovieTitle" required>
+                            <br>
+                            <br>
+                            <label for="movieGanres">Movie ganre:</label>
+                            <select name="movieGanres" id="movieGanres">
+                                <option value="action">Action</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="animation">Animation</option>
+                                <option value="biography">Biography</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="crime">Crime</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="drama">Drama</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="history">History</option>
+                                <option value="horror">Horror</option>
+                                <option value="musical">Musical</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="war">War</option>
+                                <option value="western">Western</option>
+                            </select>
+                            <br>
+                            <br>
+                            <label for="movieYear">Release year:</label>
+                            <br>
+                            <input type="text" name="movieYear" id="movieYear" required>
+                            <br>
+                            <br>
+
+                            <div id="addMovieButtons">
+                                <button type="submit" id="addMovie">Add Movie</button>
+                                <button type="reset" id="resetAddMovie">Reset</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/localStore.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
