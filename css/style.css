@@ -89,7 +89,7 @@ header>hr {
     display: block;
 }
 
-.okvirOkoNaslova {
+.borderAroundTitle {
     border: 3px solid #ff4444;
     border-radius: 50px;
     width: 500px;
@@ -174,76 +174,33 @@ button:hover {
     border: 1px solid white;
 }
 
-.dropdown {
-    float: right;
-    font-family: Roboto;
-    position: relative;
-}
 
-#registerTab {
+#registerButton {
     float: right;
 }
 
-#logInTab {
+#logInButton {
     float: right;
-    margin-left: 940px;
-}
-
-.dropbtn {
-    width: 150px;
-    height: 30px;
-    background-color: black;
-    border: 1px solid black;
-    color: gold;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: black;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    padding: 10px;
-}
-
-.dropdown-content>#userName, #passWord {
-    height: 25px;
-    padding: 0 5px;
-    margin: 0 20px;
-    min-width: 100px;
-}
-
-.dropbtn1 {
-    color: gold;
-    margin: auto;
-    margin-top: 10px;
-    min-width: 50%;
-}
-
-.dropbtn1:hover {
-    border: 1px solid white;
-}
-
-.dropdown-content label {
-    padding: 10px;
-    float: left;
-    margin-left: 10px;
-    color: gold;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    margin-left: 1040px;
 }
 
 #ulogovan {
     display: none;
+    float: left;
+    margin-left: 850px;
+    height: 30px;
+    border-radius: 0;
+    color: gold;
+    background-color: black;
+    border: 1px solid black;
+    line-height: 2;
 }
 
-#addMovieTab {
+#ulogovan span {
+    color: red;
+}
+
+#addMovieButton {
     display: none;
 }
 
@@ -320,7 +277,30 @@ button:hover {
 
 #centralContentImage1 {
     position: relative;
-    
+    background: url(../images/ulaz_u_bioskop.jpg);
+    background-position: center center;
+    background-size: cover;
+    width: 1090px;
+    height: 590px;
+    margin-left: 0;
+    margin-right: 0;
+    display: none;
+}
+
+#centralContentImage2 {
+    position: relative;
+    background: url(../images/ulaz_u_bioskop.jpg);
+    background-position: center center;
+    background-size: cover;
+    width: 1090px;
+    height: 590px;
+    margin-left: 0;
+    margin-right: 0;
+    display: none;
+}
+
+#centralContentImage3 {
+    position: relative;
     background: url(../images/ulaz_u_bioskop.jpg);
     background-position: center center;
     background-size: cover;
@@ -340,6 +320,42 @@ button:hover {
     text-align: center;
     display: none;
     position: absolute;
+  
+    margin: auto;
+    max-width: 30%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: rgb(252, 251, 231);
+    padding: 20px;
+}
+
+#passwordResetPanel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: (-50%, -50%);
+    -ms-transform: (-50%, -50%);
+    text-align: center;
+    display: none;
+    position: absolute;
+   
+    margin: auto;
+    max-width: 30%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: rgb(252, 251, 231);
+    padding: 20px;
+}
+
+#logInPanel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: (-50%, -50%);
+    -ms-transform: (-50%, -50%);
+    text-align: center;
+    display: none;
+    position: absolute;
     padding: 0%;
     margin: auto;
     max-width: 30%;
@@ -348,6 +364,29 @@ button:hover {
     background-color: rgb(252, 251, 231);
     padding: 20px;
 }
+
+#confirmLogIn {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#resetLogIn {
+    height: 40px;
+    float: left;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#confirmLogIn:hover, #resetLogIn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
 
 #createOrEdit {
     margin-bottom: 10px;
@@ -362,9 +401,29 @@ button:hover {
     width: 100%;
 }
 
+#logInPanel input {
+    width: 100%;
+}
+
 #buttonsRegistration {
     overflow: hidden;
 }
+
+#buttonsLogIn {
+    overflow: hidden;
+}
+
+#buttonsResetPassword button{
+    margin: auto;
+    text-align: center;
+}
+
+#buttonsLogIn button{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
 
 #createAcountRegistration {
     height: 40px;

@@ -21,28 +21,19 @@
                     class="img-responsive">
             </div>
             <div id="mainTitle">
-                <div class="okvirOkoNaslova">
+                <div class="borderAroundTitle">
                     <h1>My <span>Movie </span>Storage</h1>
                 </div>
             </div>
             <nav id="navBar" class="row">
-                <button type="button" id="homeTab">Home</button>
-                <button type="button" id="addMovieTab">Add movie</button>
-                <button type="button" id="searchTab">Search</button>
-                <div class="dropdown" id="logInTab">
-                    <div id="ulogovan">Ulogovani ste kao: <span id="imeUlogovanogKorisnika">
-                        </span><a href="">Izloguj se</a>
-                    </div>
-                    <button class="dropbtn">Log in</button>
-                    <div class="dropdown-content">
-                        <label for="userName">User name</label>
-                        <input type="text" id="userName">
-                        <label for="passWord">Password</label>
-                        <input type="password" id="passWord">
-                        <button class="dropbtn1" id="dropbtn1">Ok</button>
-                    </div>
+                <button type="button" id="homeButton">Home</button>
+                <button type="button" id="addMovieButton">Add movie</button>
+                <button type="button" id="searchButton">Search</button>
+                <button type="button" id="logInButton">Log in</button>
+                <button type="button" id="registerButton">Register</button>
+                <div id="ulogovan">Ulogovan kao: <span id="imeUlogovanogKorisnika"></span>&nbsp;<a href="#" id="logOutButton">Izloguj
+                        se</a>
                 </div>
-                <button class="dropbtn" id="registerTab">Register</button>
             </nav>
         </header>
         <div id="mainContent" class="row">
@@ -54,9 +45,10 @@
                 <div id="movieStoryline">Radnja:</div>
             </div>
             <div id="centralContent">
-                <div id="centralContentImage"></div>
+                <div id="centralContentImage">
+                </div>
                 <div id="centralContentImage1">
-                    <form action="#" id="registrationPanel">
+                    <form action="#" method="POST" id="registrationPanel">
                         <fieldset>
                             <legend id="createOrEdit">Create your acount:</legend>
                             <label for="userNameRegistration">User name:</label>
@@ -83,8 +75,51 @@
                             <br>
                             <br>
                             <div id="buttonsRegistration">
-                                <button type="submit" id="createAcountRegistration">Create acount</button>
+                                <button id="createAcountRegistration">Create acount</button>
                                 <button type="reset" id="resetRegistration">Reset</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="centralContentImage2">
+                    <form action="#" method="POST" id="passwordResetPanel">
+                        <fieldset>
+                            <legend id="createOrEdit">Reset your password:</legend>
+                            <br>
+                            <label for="userNameReset">User name:</label>
+                            <br>
+                            <br>
+                            <input type="text" name="userName" id="userNameReset" required>
+                            <br>
+                            <br>
+                            <div id="buttonsResetPassword">
+                                <button>Send</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="centralContentImage3">
+                    <form action="#" method="POST" id="logInPanel">
+                        <fieldset>
+                            <legend id="createOrEdit">Log in:</legend>
+                            <label for="emailLogIn">email:</label>
+                            <br>
+                            <br>
+                            <input type="email" name="userName" id="emailLogIn" required>
+                            <br>
+                            <br>
+                            <label for="passWordLogIn">Password:</label>
+                            <br>
+                            <br>
+                            <input type="text" name="userName" id="passWordLogIn" required>
+                            <br>
+                            <br>
+                            <div id="buttonsLogIn">
+                                <button id="confirmLogIn">Send</button>
+                                <button type="reset" id="resetLogIn">Reset</button>
+                                <br>
+                                <br>
+                                <a href="#" id="linkResetButton">Zaboravljena sifra</a>
                             </div>
                         </fieldset>
                     </form>
