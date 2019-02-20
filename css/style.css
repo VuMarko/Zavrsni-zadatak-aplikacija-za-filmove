@@ -41,7 +41,7 @@ table {
     box-sizing: border-box;
 }
 
-/****************************** Header ******************************/
+/**************************************** Header ****************************************/
 
 #mainDiv {
     max-width: 1440px;
@@ -144,7 +144,7 @@ h1 span {
     }
 }
 
-/****************************** Nav bar ******************************/
+/**************************************** Nav bar ****************************************/
 
 #navBar {
     margin-left: 0;
@@ -159,6 +159,25 @@ h1 span {
     color: white;
 }
 
+#navBar button:hover {
+    animation: bounce 1s;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    80% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
 button {
     width: 100px;
     height: 30px;
@@ -169,11 +188,14 @@ button {
     display: block;
 }
 
+button:focus {
+    outline: none;
+}
+
 button:hover {
     cursor: pointer;
     border: 1px solid white;
 }
-
 
 #registerButton {
     float: right;
@@ -204,63 +226,61 @@ button:hover {
     display: none;
 }
 
-/****************************** Main Content ******************************/
+/**************************************** Central content ****************************************/
 
 #mainContent {
     overflow: hidden;
     margin: auto;
-    max-width: 1440px;
+    width: 1440px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
-#leftContent {
-    width: 250px;
-    height: 690px;
-    padding: 10px;
-    border: 2px solid black;
-    border-right-width: 0.5px;
-    background-color: black;
-    margin: auto;
+#tabelaFilm {
+    border: 1px solid gray;
     color: white;
-    font-family: Roboto;
-    text-align: center;
-    display: table;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-#movieTitle {
-    height: 40px;
-    font-size: 25px;
+#tabelaFilm>div {
+    border: 1px solid white;
+    background-color: rgba(100, 100, 100, 0.8);
+    width: 81.5px;
+    height: 120px;
+    margin: 15px 14px 10px 21px;
     padding: 5px;
-}
-
-#movieRating {
-    height: 40px;
-    font-size: 30px;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 2;
     color: gold;
-    padding: 5px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background-size: contain;
 }
 
-#moviePoster {
-    height: 200px;
+#tabelaFilm>div:hover {
+    transform: scale(1.2)
 }
 
-#movieCast {
-    height: 200px;
-    text-align: left;
-    padding: 5px;
-}
-
-#movieStoryline {
-    height: 185px;
-    text-align: left;
-    padding: 5px;
+#tabelaFilm img {
+    width: 100px;
+    height: 121px;
+    position: relative;
+    top: -48%;
+    left: -7%;
+    z-index: -1;
 }
 
 #centralContent {
     width: 1190px;
     height: 690px;
     border: 2px solid black;
-    border-left-width: 0.5px;
     padding: 50px;
+    background-color: black;
 }
 
 #centralContentImage {
@@ -271,8 +291,9 @@ button:hover {
     height: 590px;
     margin-left: 0;
     margin-right: 0;
-    /* display: block; */
     display: block;
+    position: absolute;
+    overflow: auto;
 }
 
 #centralContentImage1 {
@@ -320,7 +341,6 @@ button:hover {
     text-align: center;
     display: none;
     position: absolute;
-  
     margin: auto;
     max-width: 30%;
     font-family: 'Roboto', sans-serif;
@@ -338,7 +358,6 @@ button:hover {
     text-align: center;
     display: none;
     position: absolute;
-   
     margin: auto;
     max-width: 30%;
     font-family: 'Roboto', sans-serif;
@@ -387,7 +406,6 @@ button:hover {
     border: 1px solid black;
 }
 
-
 #createOrEdit {
     margin-bottom: 10px;
     font-weight: 700;
@@ -413,23 +431,22 @@ button:hover {
     overflow: hidden;
 }
 
-#buttonsResetPassword button{
+#buttonsResetPassword button {
     margin: auto;
     text-align: center;
 }
 
-#buttonsLogIn button{
+#buttonsLogIn button {
     text-align: center;
     margin-bottom: 10px;
 }
-
-
 
 #createAcountRegistration {
     height: 40px;
     float: left;
     border-radius: 5px;
     margin-right: 5px;
+    margin-left: 39px;
     padding: 5px;
 }
 
@@ -455,7 +472,7 @@ button:hover {
     display: none;
 }
 
-#centralContentAddMovie{
+#centralContentAddMovie {
     position: relative;
     background: url(../images/bioskop.jpg);
     background-position: center center;
@@ -467,6 +484,12 @@ button:hover {
     display: none;
 }
 
+textarea {
+    width: 100%;
+    height: 124px;
+    resize: none;
+}
+
 #addMoviePanel {
     top: 50%;
     left: 50%;
@@ -476,22 +499,43 @@ button:hover {
     text-align: center;
     display: none;
     position: absolute;
-    padding: 0%;
+    padding: 10px;
     margin: auto;
-    max-width: 30%;
+    width: 750px;
+    height: 420px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     background-color: rgb(252, 251, 231);
     padding: 20px;
+    overflow: hidden;
 }
 
-#addMoviePanel input,select {
+#addMoviePanel legend {
+    font-size: 20px;
+}
+
+#addMovieButtons {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+    left: 25%;
+}
+
+#addMoviePanel>fieldset>div {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+#addMoviePanel input, select {
     width: 100%;
 }
 
 #addMovie {
     height: 40px;
-    float: left;
     border-radius: 5px;
     margin-right: 5px;
     padding: 5px;
@@ -503,4 +547,81 @@ button:hover {
     border-radius: 5px;
     margin-left: 5px;
     padding: 5px;
+}
+
+/**************************************** Left content ****************************************/
+
+#leftContent {
+    width: 250px;
+    height: 690px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    font-family: Roboto;
+    text-align: center;
+}
+
+#leftContent p {
+    text-align: left;
+    font-size: 15px;
+    padding-left: 5px;
+    margin-top: 15px;
+}
+
+#leftContent div {
+    padding: 5px;
+    width: 210px;
+}
+
+#movieTitle {
+    height: 40px;
+    font-size: 20px;
+    margin: 10px 0;
+    word-wrap: break-word;
+}
+
+#moviePoster {
+    height: 221px;
+    width: 150px !important;
+    margin: auto;
+    word-wrap: break-word;
+    font-size: 12px;
+}
+
+#moviePoster img {
+    height: 221px;
+    width: 150px;
+}
+
+#movieRating {
+    height: 50px;
+    font-size: 35px;
+    color: gold;
+    margin: 10px 0;
+}
+
+#movieDirector {
+    height: 65px;
+    text-align: left;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+#movieCast {
+    height: 80px;
+    text-align: left;
+    margin: 5px 0;
+    font-size: 12px;
+    word-wrap: break-word;
+}
+
+#movieStory {
+    height: 100px;
+    text-align: left;
+    width: 227px;
+    overflow: auto;
+    word-wrap: break-word;
+    margin: 5px 0;
+    font-size: 12px;
 }
