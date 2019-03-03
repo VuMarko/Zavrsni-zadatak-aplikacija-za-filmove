@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link
-        href="https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:400,400i,700|Roboto:400,400i,700&amp;subset=latin-ext"
+        href="https://fonts.googleapis.com/css?family=Lato:400,400i,700%7COpen+Sans:400,400i,700%7CRoboto:400,400i,700&amp;subset=latin-ext"
         rel="stylesheet">
     <title>MyMovieStorage</title>
     <link rel="icon" href="images/MyMovieStorage-favicon.ico" type="image/ico" sizes="16x16">
@@ -18,7 +18,7 @@
     <div id="mainDiv" class="container-fluid">
         <header id="mainHeader" class="row">
             <div id="mainLogo">
-                <img src="images/MyMovieStorage-logo-slika-croped (100x100).jpg" alt="MyMovieStorage-logo-slika-croped"
+                <img src="images/MyMovieStorage-logo-slika-croped(100x100).jpg" alt="MyMovieStorage-logo-slika-croped"
                     class="img-responsive">
             </div>
             <div id="mainTitle">
@@ -32,12 +32,75 @@
                 <button type="button" id="searchButton">Search</button>
                 <button type="button" id="logInButton">Log in</button>
                 <button type="button" id="registerButton">Register</button>
-                <div id="ulogovan">Ulogovan kao: <span id="imeUlogovanogKorisnika"></span>&nbsp;<a href="#"
+                <div id="ulogovan">Ulogovan kao: <span id="imeUlogovanogKorisnika"></span>&nbsp;<button
                         id="logOutButton">Izloguj
-                        se</a>
+                        se</button>
                 </div>
             </nav>
         </header>
+        <div id="moviePopUp"><a id="remove" href=""></a>
+            <form action="#" method="POST" id="editMoviePanel">
+                <fieldset>
+                    <legend class="createOrEdit">Movie panel:</legend>
+                    <div id="popUpPoster">
+                    </div>
+                    <div id="popUpLeft">
+                        <span>Movie ID:</span>
+                        <br>
+                        <div id="movieIdFromStorage"></div>
+                        <br>
+                        <span>IMDB Address:</span>
+                        <br>
+                        <div id="movieImdbAddressFromStorage"></div>
+                        <br>
+                        <span>IMDB poster address:</span>
+                        <br>
+                        <div id="movieImdbPosterAddressFromStorage"></div>
+                        <br>
+                        <span></span>
+                        <br>
+                        <div id="movieImdbTrailerAddressFromStorage"></div>
+                        <br>
+                        <span>Movie title:</span>
+                        <br>
+                        <div id="movieTitleFromStorage"></div>
+                        <br>
+                        <span>Movie rating:</span>
+                        <br>
+                        <div id="movieRatingFromStorage"></div>
+                    </div>
+                    <div id="popUpRight">
+                        <span>Movie genre:</span>
+                        <br>
+                        <div id="movieGenreFromStorage"></div>
+                        <br>
+                        <span>Movie year:</span>
+                        <br>
+                        <div id="movieYearFromStorage"></div>
+                        <br>
+                        <span>Movie director:</span>
+                        <br>
+                        <div id="movieDirectorFromStorage"></div>
+                        <br>
+                        <span>Movie cast:</span>
+                        <br>
+                        <div id="movieCastFromStorage"></div>
+                        <br>
+                        <span>Movie story:</span>
+                        <br>
+                        <div id="movieStoryFromStorage"></div>
+                    </div>
+                    <div id="editMoviePanelButtons">
+                        <button id="editMovieProfile">Edit movie</button>
+                        <button id="confirmMovieProfile">Confirm</button>
+                        <button id="deleteMovieProfile">Delete movie</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="moviePopUpTrailer"><a id="removeTrailer" href=""></a>
+            <div id="iframeWindow"></div>
+        </div>
         <div id="mainContent" class="row">
             <div id="leftContent">
                 <div id="movieTitle"></div>
@@ -52,13 +115,14 @@
             </div>
             <div id="centralContent">
                 <div id="centralContentImage">
+
                     <div id="movieTable"></div>
                 </div>
-                <div id="centralContentImage1">
+                <div id="centralContentRegistration">
                     <form action="#" method="POST" id="registrationPanel">
                         <fieldset>
-                            <legend id="createOrEdit">Create your acount:</legend>
-                            <label for="userEmailRegistration">Email address: </label>
+                            <legend class="createOrEdit">Create your acount:</legend>
+                            <label for="userEmailRegistration">Email address:</label>
                             <br>
                             <input type="email" name="userEmailRegistration" id="userEmailRegistration" required>
                             <br>
@@ -66,7 +130,7 @@
                             <label for="userQuestionRegistration">Security question</label>
                             <br>
                             <select id="userQuestionRegistration" required>
-                                <option value="">Izaberi</option>
+                                <option value="">Choose question:</option>
                                 <option value="Your mother middle name">Your mother middle name</option>
                                 <option value="Your first pet name">Your first pet name</option>
                                 <option value="Name of your first love">Name of your first love</option>
@@ -77,7 +141,7 @@
                             <br>
                             <label for="userAnswerRegistration">Answer</label>
                             <br>
-                            <input type="text" name="userEmailRegistration" id="userAnswerRegistration" required>
+                            <input type="text" name="userAnswerRegistration" id="userAnswerRegistration" required>
                             <br>
                             <br>
                             <label for="userPasswordRegistration">Password:</label>
@@ -99,10 +163,10 @@
                         </fieldset>
                     </form>
                 </div>
-                <div id="centralContentImage2">
+                <div id="centralContentReset">
                     <form action="#" method="POST" id="passwordResetPanel">
                         <fieldset>
-                            <legend id="createOrEdit">Reset your password:</legend>
+                            <legend class="createOrEdit">Reset your password:</legend>
                             <br>
                             <label for="userEmailReset">Email:</label>
                             <br>
@@ -116,10 +180,10 @@
                         </fieldset>
                     </form>
                 </div>
-                <div id="centralContentImage3">
+                <div id="centralContentLogIn">
                     <form action="#" method="POST" id="logInPanel">
                         <fieldset>
-                            <legend id="createOrEdit">Log in:</legend>
+                            <legend class="createOrEdit">Log in:</legend>
                             <label for="emailLogIn">email:</label>
                             <br>
                             <br>
@@ -142,80 +206,122 @@
                         </fieldset>
                     </form>
                 </div>
-                <div id="centralContentMovie"></div>
+                <div id="centralContentSearch">
+                    <div id="movieSearchPopUp"><a id="removeSearch" href="#"></a></div>
+                    <div>
+                        <form action="#" method="POST" id="searchPanel">
+                            <fieldset>
+                                <legend id="searchLabel">Search Movie database:</legend>
+                                <div>
+                                    <label for="title">Movie title:</label>
+                                    <br>
+                                    <input type="text" id="title" name="title" class="search_param">
+                                </div>
+                                <div>
+                                    <label for="year">Movie year:</label>
+                                    <br>
+                                    <input type="text" id="year" name="year" class="search_param">
+                                </div>
+                                <div>
+                                    <label for="cast">Movie actor:</label>
+                                    <br>
+                                    <input type="text" id="cast" name="cast" class="search_param">
+                                </div>
+                                <div>
+                                    <label for="director">Movie director:</label>
+                                    <br>
+                                    <input type="text" id="director" name="director" class="search_param">
+                                </div>
+                            </fieldset>
+                            <div id="searchPanelButtons">
+                                <button type="submit" id="searchSearchButton">Search</button>
+                                <button type="reset" id="searchResetButton">Reset</button>
+                                <button type="button" id="searchCancelButton">Cancel list</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="centralContentSearchDisplay">
+                    </div>
+                </div>
                 <div id="centralContentAddMovie">
-                    <form action="#" id="addMoviePanel">
+                    <form action="#" method="POST" id="addMoviePanel">
                         <fieldset>
                             <legend id="createMovieDB">Create movie database:</legend>
                             <div>
-                                <label for="AddMovieID">Movie ID:</label>
+                                <label for="addMovieID">Movie ID:</label>
                                 <br>
-                                <input type="text" name="AddMovieID" id="AddMovieID" value="tt" maxlength="9" required>
-                                <br>
-                                <br>
-                                <label for="AddMovieImdbAddress">Movie IMDB address:</label>
-                                <br>
-                                <input type="text" name="AddMovieImdbAddress" id="AddMovieImdbAddress" required>
+                                <input type="text" name="addMovieID" id="addMovieID" value="tt" maxlength="9" required>
                                 <br>
                                 <br>
-                                <label for="AddPosterAddres">Movie IMDB poster address:</label>
+                                <label for="addMovieImdbAddress">Movie IMDB address:</label>
                                 <br>
-                                <input type="text" name="AddPosterAddres" id="AddPosterAddres" required>
-                                <br>
-                                <br>
-                                <label for="AddMovieTitle">Movie title:</label>
-                                <br>
-                                <input type="text" name="AddMovieTitle" id="AddMovieTitle" required>
+                                <input type="text" name="addMovieImdbAddress" id="addMovieImdbAddress" required>
                                 <br>
                                 <br>
-                                <label for="AddMovieRating">Movie rating:</label>
+                                <label for="addPosterAddress">Movie IMDB poster address:</label>
                                 <br>
-                                <input type="number" name="AddMovieRating" id="AddMovieRating" min="0.0" max="10"
+                                <input type="text" name="addPosterAddress" id="addPosterAddress" required>
+                                <br>
+                                <br>
+                                <label for="addTrailerAddress">Movie trailer address:</label>
+                                <br>
+                                <input type="text" name="addTrailerAddress" id="addTrailerAddress" required>
+                                <br>
+                                <br>
+                                <label for="addMovieTitle">Movie title:</label>
+                                <br>
+                                <input type="text" name="addMovieTitle" id="addMovieTitle" required>
+                                <br>
+                                <br>
+                                <label for="addMovieRating">Movie rating:</label>
+                                <br>
+                                <input type="number" name="addMovieRating" id="addMovieRating" min="0.0" max="10"
                                     step="0.1" required>
-                                <br>
-                                <br>
-                                <label for="AddMovieGenres">Movie genre:</label>
-                                <select name="AddMovieGenres" id="AddMovieGenres" required>
-                                    <option value="action">Action</option>
-                                    <option value="adventure">Adventure</option>
-                                    <option value="animation">Animation</option>
-                                    <option value="biography">Biography</option>
-                                    <option value="comedy">Comedy</option>
-                                    <option value="crime">Crime</option>
-                                    <option value="documentary">Documentary</option>
-                                    <option value="drama">Drama</option>
-                                    <option value="fantasy">Fantasy</option>
-                                    <option value="history">History</option>
-                                    <option value="horror">Horror</option>
-                                    <option value="musical">Musical</option>
-                                    <option value="mystery">Mystery</option>
-                                    <option value="romance">Romance</option>
-                                    <option value="sci-fi">Sci-Fi</option>
-                                    <option value="thriller">Thriller</option>
-                                    <option value="war">War</option>
-                                    <option value="western">Western</option>
-                                </select>
                             </div>
                             <div>
-                                <label for="AddMovieYear">Release year:</label>
+                                <label for="addMovieGenres">Movie genre:</label>
+                                <select name="addMovieGenres" id="addMovieGenres" required>
+                                    <option value="">Choose genre:</option>
+                                    <option value="Action">Action</option>
+                                    <option value="Adventure">Adventure</option>
+                                    <option value="Animation">Animation</option>
+                                    <option value="Biography">Biography</option>
+                                    <option value="Comedy">Comedy</option>
+                                    <option value="Crime">Crime</option>
+                                    <option value="Focumentary">Documentary</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="History">History</option>
+                                    <option value="Horror">Horror</option>
+                                    <option value="Musical">Musical</option>
+                                    <option value="Mystery">Mystery</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Sci-fi">Sci-Fi</option>
+                                    <option value="Thriller">Thriller</option>
+                                    <option value="War">War</option>
+                                    <option value="Western">Western</option>
+                                </select>
                                 <br>
-                                <input type="text" name="AddMovieYear" id="AddMovieYear" maxlength="4" min="1900"
-                                    max="2050" required>
+                                <br>
+                                <label for="addMovieYear">Release year:</label>
+                                <br>
+                                <input type="number" name="addMovieYear" id="addMovieYear" min="1900" max="2050"
+                                    required>
                                 <br>
                                 <br>
-                                <label for="AddMovieDirector">Movie director:</label>
+                                <label for="addMovieDirector">Movie director:</label>
                                 <br>
-                                <input type="text" name="AddMovieDirector" id="AddMovieDirector" required>
-                                <br>
-                                <br>
-                                <label for="AddMovieCast">Movie cast:</label>
-                                <br>
-                                <input type="text" name="AddMovieCast" id="AddMovieCast" required>
+                                <input type="text" name="addMovieDirector" id="addMovieDirector" required>
                                 <br>
                                 <br>
-                                <label for="AddMovieStory">Movie story:</label>
+                                <label for="addMovieCast">Movie cast:</label>
                                 <br>
-                                <textarea name="AddMovieStory" id="AddMovieStory" maxlength="150" required></textarea>
+                                <input type="text" name="addMovieCast" id="addMovieCast" required>
+                                <br>
+                                <br>
+                                <label for="addMovieStory">Movie story:</label>
+                                <br>
+                                <textarea name="addMovieStory" id="addMovieStory" maxlength="150" required></textarea>
                             </div>
                             <div id="addMovieButtons">
                                 <button type="submit" id="addMovie">Add Movie</button>
@@ -223,8 +329,34 @@
                             </div>
                         </fieldset>
                     </form>
-
-
+                </div>
+                <div id="centralContentUserProfil">
+                    <form action="#" method="POST" id="userProfilPanel">
+                        <fieldset>
+                            <legend class="createOrEdit">Edit user profile:</legend>
+                            <br>
+                            <span>User email:</span>
+                            <br>
+                            <div id="userEmailFromStorage"></div>
+                            <br>
+                            <span >Security question:</span>
+                            <br>
+                            <div id="userQuestionFromStorage"></div>
+                            <br>
+                            <span>Answer</span>
+                            <br>
+                            <div id="userAnswerFromStorage"></div>
+                            <br>
+                            <span>Password:</span>
+                            <br>
+                            <div id="userPasswordFromStorage"></div>
+                            <br>
+                            <div id="buttonsUserProfile">
+                                <button id="editUserProfile">Edit profil</button>
+                                <button id="confirmUserProfile">Confirm</button>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
