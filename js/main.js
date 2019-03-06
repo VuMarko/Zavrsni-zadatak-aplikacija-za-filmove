@@ -4,6 +4,7 @@ function d(id) {
 
 // *************** Intro page *************** //
 
+
 function removeIntro() {
     d('introPage').style.display = "none";
     d('mainDiv').style.display = "block";
@@ -54,6 +55,7 @@ if (jelUlogovan() == true) {
     napraviTabeluFilmova();
     console.log('Ulogovan je:', LS.get('ulogovan').email);
     console.log('Ulogovan si');
+    removeIntro()
 } else {
     console.log('Nisi ulogovan');
     alert('You are not logged in');
@@ -268,58 +270,59 @@ function napraviTabeluFilmova() {
     document.getElementById("movieTable").innerHTML = html;
 };
 
-d('tabelaFilm').addEventListener('click', function (event) {
-    event.preventDefault();
-    if (event.target.classList.contains('poljeFilma')) {
-        var podaciOFilmu = LS.get('filmovi')[event.target.id]
-        d('movieTitle').innerHTML = podaciOFilmu.title;
-        d('movieRating').innerHTML = podaciOFilmu.movieRating;
-        d('moviePoster').innerHTML = '<img src="' + podaciOFilmu.posterAddress + '" alt="' + podaciOFilmu.posterAddress + '">';
-        d('movieDirector').innerHTML = podaciOFilmu.director;
-        d('movieCast').innerHTML = podaciOFilmu.cast;
-        d('movieStory').innerHTML = podaciOFilmu.storyline;
-        console.log('imdb adresa', podaciOFilmu.imdbAddress)
-        var regexImdb = /[a-z][a-z]*[0-9]+[a-z0-9]/;
-        var adresa = podaciOFilmu.imdbAddress;
-        // console.log('Adresa iz url-a:', adresa.match(regexImdb).input)
-    }
-});
-
-d('tabelaFilm').addEventListener('dblclick', function (event) {
-    event.preventDefault();
-    if (event.target.classList.contains('poljeFilma')) {
-        console.log('ID kliknutog filma:', event.target.id)
-        d('moviePopUp').style.display = "block";
-        function ispisObelezenogFilma() {
-            var sviFilmovi = LS.get('filmovi')
-            console.log()
-            d('popUpPoster').innerHTML = '<img src="' + sviFilmovi[event.target.id].posterAddress + '" alt="' + sviFilmovi[event.target.id].posterAddress + '"><button id="popUpTrailerButton">Movie trailer</button>';
-            d('movieIdFromStorage').innerHTML = sviFilmovi[event.target.id].idFilma;
-            d('movieImdbAddressFromStorage').innerHTML = sviFilmovi[event.target.id].imdbAddress;
-            d('movieImdbPosterAddressFromStorage').innerHTML = sviFilmovi[event.target.id].posterAddress;
-            d('movieImdbTrailerAddressFromStorage').innerHTML = sviFilmovi[event.target.id].trailerAddress;
-            d('movieTitleFromStorage').innerHTML = sviFilmovi[event.target.id].title;
-            d('movieRatingFromStorage').innerHTML = sviFilmovi[event.target.id].movieRating;
-            d('movieGenreFromStorage').innerHTML = sviFilmovi[event.target.id].genre;
-            d('movieYearFromStorage').innerHTML = sviFilmovi[event.target.id].year;
-            d('movieDirectorFromStorage').innerHTML = sviFilmovi[event.target.id].director;
-            d('movieCastFromStorage').innerHTML = sviFilmovi[event.target.id].cast;
-            d('movieStoryFromStorage').innerHTML = sviFilmovi[event.target.id].storyline;
-
-        };
-        ispisObelezenogFilma();
-    }
-    d('popUpTrailerButton').className = event.target.id;
-    d('popUpTrailerButton').addEventListener('click', function (event) {
+if (jelUlogovan() == true) {
+    d('tabelaFilm').addEventListener('click', function (event) {
         event.preventDefault();
-        var sviFilmovi = LS.get('filmovi');
-        d('moviePopUpTrailer').style.display = "block";
-        console.log(sviFilmovi[popUpTrailerButton.className].trailerAddress)
-        d('iframeWindow').innerHTML = '<iframe src="' + sviFilmovi[popUpTrailerButton.className].trailerAddress + '" allowfullscreen="true" width = "500" height = "400"></iframe >';
+        if (event.target.classList.contains('poljeFilma')) {
+            var podaciOFilmu = LS.get('filmovi')[event.target.id]
+            d('movieTitle').innerHTML = podaciOFilmu.title;
+            d('movieRating').innerHTML = podaciOFilmu.movieRating;
+            d('moviePoster').innerHTML = '<img src="' + podaciOFilmu.posterAddress + '" alt="' + podaciOFilmu.posterAddress + '">';
+            d('movieDirector').innerHTML = podaciOFilmu.director;
+            d('movieCast').innerHTML = podaciOFilmu.cast;
+            d('movieStory').innerHTML = podaciOFilmu.storyline;
+            console.log('imdb adresa', podaciOFilmu.imdbAddress)
+            var regexImdb = /[a-z][a-z]*[0-9]+[a-z0-9]/;
+            var adresa = podaciOFilmu.imdbAddress;
+            // console.log('Adresa iz url-a:', adresa.match(regexImdb).input)
+        }
     });
 
-});
+    d('tabelaFilm').addEventListener('dblclick', function (event) {
+        event.preventDefault();
+        if (event.target.classList.contains('poljeFilma')) {
+            console.log('ID kliknutog filma:', event.target.id)
+            d('moviePopUp').style.display = "block";
+            function ispisObelezenogFilma() {
+                var sviFilmovi = LS.get('filmovi')
+                console.log()
+                d('popUpPoster').innerHTML = '<img src="' + sviFilmovi[event.target.id].posterAddress + '" alt="' + sviFilmovi[event.target.id].posterAddress + '"><button id="popUpTrailerButton">Movie trailer</button>';
+                d('movieIdFromStorage').innerHTML = sviFilmovi[event.target.id].idFilma;
+                d('movieImdbAddressFromStorage').innerHTML = sviFilmovi[event.target.id].imdbAddress;
+                d('movieImdbPosterAddressFromStorage').innerHTML = sviFilmovi[event.target.id].posterAddress;
+                d('movieImdbTrailerAddressFromStorage').innerHTML = sviFilmovi[event.target.id].trailerAddress;
+                d('movieTitleFromStorage').innerHTML = sviFilmovi[event.target.id].title;
+                d('movieRatingFromStorage').innerHTML = sviFilmovi[event.target.id].movieRating;
+                d('movieGenreFromStorage').innerHTML = sviFilmovi[event.target.id].genre;
+                d('movieYearFromStorage').innerHTML = sviFilmovi[event.target.id].year;
+                d('movieDirectorFromStorage').innerHTML = sviFilmovi[event.target.id].director;
+                d('movieCastFromStorage').innerHTML = sviFilmovi[event.target.id].cast;
+                d('movieStoryFromStorage').innerHTML = sviFilmovi[event.target.id].storyline;
 
+            };
+            ispisObelezenogFilma();
+        }
+        d('popUpTrailerButton').className = event.target.id;
+        d('popUpTrailerButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            var sviFilmovi = LS.get('filmovi');
+            d('moviePopUpTrailer').style.display = "block";
+            console.log(sviFilmovi[popUpTrailerButton.className].trailerAddress)
+            d('iframeWindow').innerHTML = '<iframe src="' + sviFilmovi[popUpTrailerButton.className].trailerAddress + '" allowfullscreen="true" width = "500" height = "400"></iframe >';
+        });
+
+    });
+}
 d('remove').addEventListener('click', function (event) {
     event.preventDefault();
     d('moviePopUp').style.display = "none";
@@ -400,7 +403,24 @@ d('deleteMovieProfile').addEventListener('click', function (event) {
 
 // *************** sortiranje  *************** //
 
-d('movieTableSort').addEventListener('click', function (event) {
+
+
+d('sortByYear_asc').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+    console.log(objToArray(sviFilmovi).sort(function (a, b) {
+        return a.year - b.year
+    }));
+});
+
+d('sortByYear_desc').addEventListener('click', function (event) {
     event.preventDefault();
     var sviFilmovi = LS.get('filmovi');
     function objToArray(obj) {
@@ -411,32 +431,69 @@ d('movieTableSort').addEventListener('click', function (event) {
         return arr;
     }
 
-    console.log(objToArray(LS.get('filmovi')).sort(function (a, b) {
-        return a.movieRating - b.movieRating
+    console.log(objToArray(sviFilmovi).sort(function (a, b) {
+        return b.year - a.year
     }));
+});
 
+d('sortByTitle_asc').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+    console.log(objToArray(sviFilmovi).sort())
+});
 
-
-
-    
+d('sortByTitle_desc').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+    console.log(objToArray(sviFilmovi).reverse())
 
 });
 
+d('sortByRating_asc').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+    console.log(objToArray(sviFilmovi).sort(function (a, b) {
+        return a.movieRating - b.movieRating
+    }));
+});
 
-
-
-
-
-
-
-
-
-
-
-
+d('sortByRating_desc').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+    console.log(objToArray(sviFilmovi).sort(function (a, b) {
+        return b.movieRating - a.movieRating
+    }));
+});
 
 // *************** profil korisnika *************** //
-
 
 d('imeUlogovanogKorisnika').addEventListener('click', function (event) {
     event.preventDefault();
@@ -573,17 +630,6 @@ d('centralContentSearchDisplay').addEventListener('dblclick', function (event) {
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 function prikaziDiv(id) {
     var ids = [
