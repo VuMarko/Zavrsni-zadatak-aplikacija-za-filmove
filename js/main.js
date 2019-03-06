@@ -1,6 +1,18 @@
 function d(id) {
     return document.getElementById(id);
 }
+
+// *************** Intro page *************** //
+
+function removeIntro() {
+    d('introPage').style.display = "none";
+    d('mainDiv').style.display = "block";
+}
+
+setTimeout(removeIntro, 5000)
+
+
+
 // *************** localStorage *************** //
 LS.init('ulogovan');
 LS.init('korisnici');
@@ -143,6 +155,7 @@ d("registerButton").addEventListener("click", function (event) {
     prikaziDiv("registrationPanel");
     d("centralContentImage").style.display = "none";
     d("centralContentLogIn").style.display = "none";
+    d('movieTableSort').style.display = "none";
     d('registrationPanel').reset();
 });
 
@@ -153,6 +166,7 @@ d("logInButton").addEventListener("click", function (event) {
     d("centralContentImage").style.display = "none";
     d("centralContentRegistration").style.display = "none";
     d("centralContentReset").style.display = "none";
+    d('movieTableSort').style.display = "none";
     napraviTabeluFilmova();
     d("logInPanel").reset();
 });
@@ -162,6 +176,7 @@ d("linkResetButton").addEventListener("click", function (event) {
     prikaziDiv("passwordResetPanel");
     d("centralContentReset").style.display = "block";
     d("centralContentLogIn").style.display = "none";
+    d('movieTableSort').style.display = "none";
     d("passwordResetPanel").reset();
 });
 
@@ -175,6 +190,7 @@ d("addMovieButton").addEventListener("click", function (event) {
     d("centralContentSearch").style.display = "none";
     d('moviePopUp').style.display = "none";
     d('moviePopUpTrailer').style.display = "none"
+    d('movieTableSort').style.display = "none";
     d("addMoviePanel").reset();
     d('iframeWindow').innerHTML = "";
     brisiPodatke();
@@ -187,7 +203,8 @@ d("searchButton").addEventListener("click", function (event) {
     d("centralContentImage").style.display = "none";
     d("centralContentAddMovie").style.display = "none";
     d('moviePopUp').style.display = "none";
-    d('moviePopUpTrailer').style.display = "none"
+    d('moviePopUpTrailer').style.display = "none";
+    d('movieTableSort').style.display = "none";
     d('iframeWindow').innerHTML = "";
 });
 
@@ -324,10 +341,6 @@ function brisiPodatke() {
     d('movieStory').innerHTML = "";
 };
 
-
-
-
-
 // *************** demo podaci *************** //
 
 var film = {
@@ -387,6 +400,40 @@ d('deleteMovieProfile').addEventListener('click', function (event) {
 
 // *************** sortiranje  *************** //
 
+d('movieTableSort').addEventListener('click', function (event) {
+    event.preventDefault();
+    var sviFilmovi = LS.get('filmovi');
+    function objToArray(obj) {
+        var arr = [];
+        for (var i in obj) {
+            arr.push(obj[i]);
+        }
+        return arr;
+    }
+
+    console.log(objToArray(LS.get('filmovi')).sort(function (a, b) {
+        return a.movieRating - b.movieRating
+    }));
+
+
+
+
+    
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // *************** profil korisnika *************** //
 
@@ -400,6 +447,7 @@ d('imeUlogovanogKorisnika').addEventListener('click', function (event) {
     d('centralContentSearch').style.display = "none";
     d('moviePopUp').style.display = "none";
     d('moviePopUpTrailer').style.display = "none";
+    d('movieTableSort').style.display = "none";
     d('iframeWindow').innerHTML = "";
     ispisProfilaUlogovanogUsera()
     brisiPodatke();

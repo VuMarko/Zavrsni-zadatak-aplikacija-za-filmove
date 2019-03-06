@@ -15,6 +15,13 @@
 </head>
 
 <body>
+    <div id="introPage">
+        <div id="logo">
+            <div id="innerCircle"></div>
+            <div id="outerCircle"></div>
+            <div id="logoText"></div>
+        </div>
+    </div>
     <div id="mainDiv" class="container-fluid">
         <header id="mainHeader" class="row">
             <div id="mainLogo">
@@ -39,7 +46,7 @@
             </nav>
         </header>
         <div id="moviePopUp"><a id="remove" href=""></a>
-            <form action="#" method="" id="editMoviePanel">
+            <form action="#" method="GET" id="editMoviePanel">
                 <fieldset>
                     <legend class="createOrEdit">Movie panel:</legend>
                     <div id="popUpPoster">
@@ -114,12 +121,20 @@
                 <div id="movieStory"></div>
             </div>
             <div id="centralContent">
+                <select id="movieTableSort">
+                    <option value="">Sort by:</option>
+                    <option id="sortByYear_asc" value="Movie year" class="sortiranje">Release year ↑</option>
+                    <option id="sortByYear_desc" value="Movie year" class="sortiranje">Release year ↓</option>
+                    <option id="sortByTitle_asc" value="Movie title" class="sortiranje" selected>Movie title ↑</option>
+                    <option id="sortByTitle_desc" value="Movie title" class="sortiranje">Movie title ↓</option>
+                    <option id="sortByRating_asc" value="Movie rating" class="sortiranje">Movie rating ↑</option>
+                    <option id="sortByRating_desc" value="Movie rating" class="sortiranje">Movie rating ↓</option>
+                </select>
                 <div id="centralContentImage">
-
                     <div id="movieTable"></div>
                 </div>
                 <div id="centralContentRegistration">
-                    <form action="#" method="" id="registrationPanel">
+                    <form action="#" method="GET" id="registrationPanel">
                         <fieldset>
                             <legend class="createOrEdit">Create your acount:</legend>
                             <label for="userEmailRegistration">Email address:</label>
@@ -164,7 +179,7 @@
                     </form>
                 </div>
                 <div id="centralContentReset">
-                    <form action="#" method="" id="passwordResetPanel">
+                    <form action="#" method="GET" id="passwordResetPanel">
                         <fieldset>
                             <legend class="createOrEdit">Reset your password:</legend>
                             <br>
@@ -181,7 +196,7 @@
                     </form>
                 </div>
                 <div id="centralContentLogIn">
-                    <form action="#" method="" id="logInPanel">
+                    <form action="#" method="GET" id="logInPanel">
                         <fieldset>
                             <legend class="createOrEdit">Log in:</legend>
                             <label for="emailLogIn">email:</label>
@@ -209,7 +224,7 @@
                 <div id="centralContentSearch">
                     <div id="movieSearchPopUp"><a id="removeSearch" href="#"></a></div>
                     <div>
-                        <form action="#" method="" id="searchPanel">
+                        <form action="#" method="GET" id="searchPanel">
                             <fieldset>
                                 <legend id="searchLabel">Search Movie database:</legend>
                                 <div>
@@ -244,7 +259,7 @@
                     </div>
                 </div>
                 <div id="centralContentAddMovie">
-                    <form action="#" method="" id="addMoviePanel">
+                    <form action="#" method="GET" id="addMoviePanel">
                         <fieldset>
                             <legend id="createMovieDB">Create movie database:</legend>
                             <div>
@@ -331,7 +346,7 @@
                     </form>
                 </div>
                 <div id="centralContentUserProfil">
-                    <form action="#" method="" id="userProfilPanel">
+                    <form action="#" method="GET" id="userProfilPanel">
                         <fieldset>
                             <legend class="createOrEdit">Edit user profile:</legend>
                             <br>
@@ -339,7 +354,7 @@
                             <br>
                             <div id="userEmailFromStorage"></div>
                             <br>
-                            <span >Security question:</span>
+                            <span>Security question:</span>
                             <br>
                             <div id="userQuestionFromStorage"></div>
                             <br>
