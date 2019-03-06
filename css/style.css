@@ -261,7 +261,7 @@ header>hr {
     flex-direction: row;
     flex-wrap: wrap;
     background-color: black;
-    justify-content:flex-start;
+    justify-content: flex-start;
 }
 
 .container-fluid {
@@ -1181,3 +1181,114 @@ textarea {
     margin: 5px 0;
     font-size: 12px;
 }
+
+/**************************************** Responsive ****************************************/
+
+@media screen and (max-width:1199px) {
+    #centralContent {
+        width: 792px;
+        padding: 20px;
+    }
+    #navBar {
+        font-size: 14px;
+    }
+    #centralContentImage {
+        width: 745px;
+        background-position: top left;
+    }
+    #movieTableSort {
+        left: -325px;
+        font-size: 14px;
+    }
+    #leftContent {
+        width: 200px;
+    }
+    #mainTitle {
+        width: 882px;
+    }
+    #movieTitle {
+        font-size: 15px;
+    }
+    #leftContent div {
+        width: auto;
+    }
+    #movieRating {
+        font-size: 25px;
+        height: 30px;
+    }
+    #leftContent p {
+        font-size: 14px;
+    }
+    #movieCast {
+        font-size: 12px;
+    }
+    #movieDirector {
+        font-size: 12px;
+    }
+    #movieStory {
+        height: auto;
+        font-size: 12px;
+    }
+    #ulogovan {
+        margin-left: 410px;
+    }
+    #centralContentSearch {
+        width: 770px;
+    }
+    #centralContentSearchDisplay {
+        width: 740px;
+    }
+    #searchPanel fieldset {
+        width: 700px;
+    }
+    #searchLabel {
+        font-size: 18px;
+    }
+    #searchPanel label {
+        font-size: 14px;
+    }
+    #searchPanel button {
+        height: 20px;
+        font-size: 14px;
+    }
+    #searchPanel input {
+        width: 150px;
+    }
+    #tabelaPretraga {
+        width: 690px;
+    }
+    #moviePopUp {
+        top: 17%;
+        left: 23%;
+        width: 735px;
+    }
+    .createOrEdit {
+        font-size: 18px;
+    }
+    #moviePopUp span {
+        font-size: 14px;
+    }
+    #moviePopUp fieldset div {
+        font-size: 12px;
+    }
+    #moviePopUpTrailer {
+        top: 17%;
+        left: 30%;
+    }
+    #logInButton {
+        margin-left: 693px;
+    }
+    #logInPanel {
+        max-width: 35%;
+    }
+    #introPage {
+        height: 992px;
+    }
+    #registrationPanel{
+        max-width: 45%;
+    }
+}
+
+@media screen and (max-width:991px) {}
+
+@media screen and (max-width:767px) {}

@@ -145,9 +145,14 @@ d("homeButton").addEventListener("click", function (event) {
         napraviTabeluFilmova();
         d('centralContentAddMovie').style.display = "none";
         d('addMoviePanel').style.display = "none";
+        d('centralContentRegistration').style.display = "none";
+        d('centralContentImage').style.display = "block";
         location.reload();
     } else {
         alert('You are not logged in')
+        prikaziDiv("centralContentImage")
+        d('centralContentRegistration').style.display = "none";
+        d('centralContentLogIn').style.display = "none";
     };
 });
 
@@ -157,6 +162,7 @@ d("registerButton").addEventListener("click", function (event) {
     prikaziDiv("registrationPanel");
     d("centralContentImage").style.display = "none";
     d("centralContentLogIn").style.display = "none";
+    d("centralContentReset").style.display = "none";
     d('movieTableSort').style.display = "none";
     d('registrationPanel').reset();
 });
@@ -169,6 +175,7 @@ d("logInButton").addEventListener("click", function (event) {
     d("centralContentRegistration").style.display = "none";
     d("centralContentReset").style.display = "none";
     d('movieTableSort').style.display = "none";
+
     napraviTabeluFilmova();
     d("logInPanel").reset();
 });
@@ -178,6 +185,7 @@ d("linkResetButton").addEventListener("click", function (event) {
     prikaziDiv("passwordResetPanel");
     d("centralContentReset").style.display = "block";
     d("centralContentLogIn").style.display = "none";
+    d('centralContentRegistration').style.display = "none";
     d('movieTableSort').style.display = "none";
     d("passwordResetPanel").reset();
 });
