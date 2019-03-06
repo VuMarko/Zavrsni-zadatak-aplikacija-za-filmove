@@ -153,6 +153,7 @@ d("homeButton").addEventListener("click", function (event) {
         prikaziDiv("centralContentImage")
         d('centralContentRegistration').style.display = "none";
         d('centralContentLogIn').style.display = "none";
+        d('centralContentReset').style.display = "none";
     };
 });
 
